@@ -1,6 +1,21 @@
-const express = require('express');
-const router = express.Router();
-const personController = require('../controllers/personController');
+const swaggerJSDoc = require('swagger-jsdoc');
+
+const options = {
+  swaggerDefinition: {
+    openapi: '3.0.0', // Update to OpenAPI version 3
+    info: {
+      title: 'Hngx-Stage2 CRUD API',
+      description: 'Documentation for My Hngx-Stage2 CRUD API',
+      version: '1.0.0',
+    },
+    basePath: '/',
+  },
+  apis: ['./routes/api.js'], // Specify the paths to your route files
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+
+module.exports = swaggerSpec;
 
 
 /**
@@ -65,8 +80,6 @@ const personController = require('../controllers/personController');
  *                   example: 404
  */
 
-// CREATE a new person
-router.post('/', personController.createPerson);
 
 /**
  * @swagger
@@ -127,9 +140,6 @@ router.post('/', personController.createPerson);
  *                   type: integer
  *                   example: 404
  */
-
-// READ a person by ID
-router.get('/:id', personController.getPersonById);
 
 
 
@@ -203,11 +213,6 @@ router.get('/:id', personController.getPersonById);
  */
 
 
-// UPDATE a person by ID
-router.put('/:id', personController.updatePersonById);
-
-
-
 /**
  * @swagger
  * /api/{userId}:
@@ -267,7 +272,3 @@ router.put('/:id', personController.updatePersonById);
  *                   type: integer
  *                   example: 404
  */
-// DELETE a person by ID
-router.delete('/:id', personController.deletePersonById);
-
-module.exports = router;

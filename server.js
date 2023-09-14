@@ -1,7 +1,9 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const errorHandler = require('./middleware/errorHandler'); // Import the errorHandler middleware
+const errorHandler = require('./middleware/errorHandler');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./documentation/swagger'); 
 
 // Load environment variables from .env
 dotenv.config();
@@ -25,6 +27,7 @@ mongoose
   });
 
 app.use(express.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Define routes
 const apiRoutes = require('./routes/api');
