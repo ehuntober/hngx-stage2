@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const errorHandler = require('./errorHandler'); // Import the errorHandler middleware
 
 // Load environment variables from .env
 dotenv.config();
@@ -27,6 +28,10 @@ app.use(express.json());
 // Define routes
 const apiRoutes = require('./routes/api');
 app.use('/api', apiRoutes);
+
+
+// Use the error handling middleware at the end of your middleware stack
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

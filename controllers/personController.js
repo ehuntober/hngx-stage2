@@ -1,18 +1,18 @@
 const Person = require('../models/personModel');
 
 // CREATE a new person
-exports.createPerson = async (req, res) => {
+exports.createPerson = async (req, res, next) => {
   try {
     const person = new Person(req.body);
     await person.save();
     res.status(201).json(person);
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    next(error); // Pass the error to the error handling middleware
   }
 };
 
 // READ a person by ID
-exports.getPersonById = async (req, res) => {
+exports.getPersonById = async (req, res, next) => {
   try {
     const person = await Person.findById(req.params.id);
     if (!person) {
@@ -20,22 +20,22 @@ exports.getPersonById = async (req, res) => {
     }
     res.json(person);
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    next(error); // Pass the error to the error handling middleware
   }
 };
 
 // READ a list of all persons
-exports.getAllPersons = async (req, res) => {
+exports.getAllPersons = async (req, res, next) => {
   try {
     const persons = await Person.find();
     res.json(persons);
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    next(error); // Pass the error to the error handling middleware
   }
 };
 
 // UPDATE a person by ID
-exports.updatePersonById = async (req, res) => {
+exports.updatePersonById = async (req, res, next) => {
   try {
     const updatedPerson = await Person.findByIdAndUpdate(
       req.params.id,
@@ -47,12 +47,12 @@ exports.updatePersonById = async (req, res) => {
     }
     res.json(updatedPerson);
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    next(error); // Pass the error to the error handling middleware
   }
 };
 
 // DELETE a person by ID
-exports.deletePersonById = async (req, res) => {
+exports.deletePersonById = async (req, res, next) => {
   try {
     const deletedPerson = await Person.findByIdAndRemove(req.params.id);
     if (!deletedPerson) {
@@ -60,6 +60,6 @@ exports.deletePersonById = async (req, res) => {
     }
     res.json({ message: 'Person deleted successfully' });
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    next(error); // Pass the error to the error handling middleware
   }
 };
