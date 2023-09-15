@@ -1,6 +1,6 @@
-# API Documentation
+# My Node.js API Documentation
 
-Welcome to the documentation for the API. This API allows you to perform CRUD operations on a "person" resource. You can create, retrieve, update, and delete person records using this API.
+Welcome to the documentation for the My Node.js API. This API allows you to perform CRUD operations on a "person" resource. You can create, retrieve, update, and delete person records using this API.
 
 # UML Diagram
 
@@ -49,7 +49,7 @@ To get started with the API, follow these steps:
    yarn dev
    ```
 
-The API will now be running at `http://localhost:3000`. You can access the API endpoints as described below.
+The API will now be running at `http://localhost:8080`. You can access the API endpoints as described below.
 
 > Note! this api relies on mongodb database, which means you need to have a mongodb cluster running on your pc before starting the api.
 
@@ -172,5 +172,7 @@ The api is available to be tested using swagger link below:
 It can aswell be tested using the automated testing script. simply run the command below:
 
 ```
+yarn test
+# or
 npm run test
 ```
