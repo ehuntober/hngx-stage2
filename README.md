@@ -1,6 +1,6 @@
 # My Node.js API Documentation
 
-Welcome to the documentation for the My Node.js API. This API allows you to perform CRUD operations on a "person" resource. You can create, retrieve, update, and delete person records using this API.
+Welcome to the documentation for  Hngx-Stage2 CRUD API. This API allows you to perform CRUD operations on a "person" resource. You can create, retrieve, update, and delete person records using this API.
 
 # UML Diagram
 
@@ -9,8 +9,8 @@ Picture 1: shows the basic structure and overflow of the api.
 Picture 2: shows the request and response formats of each operation made.
 
 <p align="left">
-<img src="https://raw.githubusercontent.com/Benrobo/hngx-be/main/s-2/md-assets/uml1.png" width="400">
-<img src="https://raw.githubusercontent.com/Benrobo/hngx-be/main/s-2/md-assets/uml2.png" width="400">
+<img src="https://github.com/ehuntober/hngx-stage2/blob/main/Diagram-assets/firstDiagram.png" width="400">
+<img src="https://github.com/ehuntober/hngx-stage2/blob/main/Diagram-assets/SecondDiagram.png" width="400">
 </p>
 
 ## Table of Contents
@@ -31,7 +31,7 @@ To get started with the API, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/benrobo/hngx-be.git
+   git clone https://github.com/ehuntober/hngx-stage2.git
    ```
 
 2. Install the dependencies:
@@ -49,7 +49,7 @@ To get started with the API, follow these steps:
    yarn dev
    ```
 
-The API will now be running at `http://localhost:8080`. You can access the API endpoints as described below.
+The API will now be running at `http://localhost:3000`. You can access the API endpoints as described below.
 
 > Note! this api relies on mongodb database, which means you need to have a mongodb cluster running on your pc before starting the api.
 
@@ -59,7 +59,7 @@ The API will now be running at `http://localhost:8080`. You can access the API e
 
 - **URL:** `/api`
 - **Method:** `POST`
-- **Body:** `{name: "Mark"}`
+- **Body:** `{name: "Mark Essein"}`
 - **Response:**
 
   ```json
@@ -67,7 +67,7 @@ The API will now be running at `http://localhost:8080`. You can access the API e
     "errorStatus": false,
     "code": "--person/success",
     "message": "User created successfully",
-    "statusCode": 200,
+    "statusCode": 201,
     "data": {
       "id": "896ea8dce542ea2d7614",
       "name": "Mark Essein"
