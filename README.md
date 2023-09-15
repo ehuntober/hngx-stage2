@@ -36,17 +36,10 @@ To get started with the API, follow these steps:
 
 2. Install the dependencies:
 
-   ```bash
-   Downloads $ cd /hngx-be/s-2
-   s-2 $ yarn
-   ```
 
 3. Start the API server:
 
-   ```bash
-   yarn start
-   # or
-   yarn dev
+   ```node app.js
    ```
 
 The API will now be running at `http://localhost:3000`. You can access the API endpoints as described below.
@@ -167,12 +160,5 @@ The API will now be running at `http://localhost:3000`. You can access the API e
 
 The api is available to be tested using swagger link below:
 
-[Swagger Test](https://hngx-be2.onrender.com/docs/)
+[Swagger Test](https://hngx-stage2-tzfv.onrender.com/api-docs)
 
-It can aswell be tested using the automated testing script. simply run the command below:
-
-```
-yarn test
-# or
-npm run test
-```
